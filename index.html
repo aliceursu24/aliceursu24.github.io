@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Информация для гостей свадьбы Алисы и Александра 20 августа 2026 года."
+    >
+    <title>Алиса и Александр | Свадьба 20.08.2026</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="topline" aria-label="Основная навигация">
+        <a href="#details">Детали</a>
+        <a href="#dress-code">Дресс-код</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+
+      <div class="hero__content">
+        <p class="hero__date">20.08.2026, 16:00</p>
+        <h1>Алиса и Александр</h1>
+        <p class="hero__place">г. Серпухов, Polyana</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="details" aria-labelledby="details-title">
+        <div class="section__header">
+          <h2 id="details-title">Информация для гостей</h2>
+          <p>Мы будем рады разделить этот день с вами.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-item">
+            <span class="info-item__label">Дата и время</span>
+            <strong>20 августа 2026, 16:00</strong>
+          </article>
+          <article class="info-item">
+            <span class="info-item__label">Место</span>
+            <strong>г. Серпухов, Polyana</strong>
+          </article>
+          <article class="info-item">
+            <span class="info-item__label">Карта</span>
+            <a
+              href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D1%80%D0%BF%D1%83%D1%85%D0%BE%D0%B2%20Polyana"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Открыть поиск места
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="dress-code" aria-labelledby="dress-title">
+        <div class="section__header">
+          <h2 id="dress-title">Дресс-код</h2>
+          <p>Финальные оттенки уточним позже, но общий ориентир уже можно держать в голове.</p>
+        </div>
+
+        <div class="palette" aria-label="Цветовая палитра для одежды">
+          <div class="palette__item">
+            <span class="swatch swatch--olive" aria-hidden="true"></span>
+            <span>Оливковый</span>
+          </div>
+          <div class="palette__item">
+            <span class="swatch swatch--brown" aria-hidden="true"></span>
+            <span>Коричневый</span>
+          </div>
+          <div class="palette__item">
+            <span class="swatch swatch--burgundy" aria-hidden="true"></span>
+            <span>Бордовый</span>
+          </div>
+        </div>
+
+        <div class="outfit-grid" aria-label="Примеры того, как можно одеться">
+          <article class="outfit-card">
+            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер женского образа">
+              Фото позже
+            </div>
+            <h3>Женский образ</h3>
+            <p>Платье, костюм или комплект в спокойных природных оттенках палитры.</p>
+          </article>
+          <article class="outfit-card">
+            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер мужского образа">
+              Фото позже
+            </div>
+            <h3>Мужской образ</h3>
+            <p>Костюм, брюки с рубашкой или жакет в коричневой, оливковой или бордовой гамме.</p>
+          </article>
+          <article class="outfit-card">
+            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер универсального образа">
+              Фото позже
+            </div>
+            <h3>Универсально</h3>
+            <p>Можно добавить цвет палитры через аксессуары: галстук, платок, обувь или сумку.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--form" id="rsvp" aria-labelledby="rsvp-title">
+        <div class="section__header">
+          <h2 id="rsvp-title">Анкета гостей</h2>
+          <p>Пожалуйста, заполните ответы для всех гостей из вашего приглашения.</p>
+        </div>
+
+        <form class="rsvp-form" id="rsvp-form" novalidate>
+          <div class="invite-state" id="invite-state" role="status" aria-live="polite">
+            Загружаем приглашение...
+          </div>
+
+          <div class="guest-list" id="guest-list"></div>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+          <button class="submit-button" type="submit" id="submit-button" hidden>
+            Сохранить ответы
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>До встречи 20 августа 2026 года.</p>
+    </footer>
+
+    <script src="script.js?v=20260524-second-day-v1"></script>
+  </body>
+</html>
