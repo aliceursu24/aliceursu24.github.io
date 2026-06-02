@@ -5,127 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Информация для гостей свадьбы Алисы и Александра 20 августа 2026 года."
+      content="Информация для гостей свадьбы Александра и Алисы 20 августа 2026 года."
     >
     <title>Алиса и Александр | Свадьба 20.08.2026</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260603-hero-photo-frame">
   </head>
   <body>
-    <header class="hero">
-      <nav class="topline" aria-label="Основная навигация">
-        <a href="#details">Детали</a>
-        <a href="#dress-code">Дресс-код</a>
-        <a href="#rsvp">RSVP</a>
-      </nav>
-
-      <div class="hero__content">
-        <p class="hero__date">20.08.2026, 16:00</p>
-        <h1>Алиса и Александр</h1>
-        <p class="hero__place">г. Серпухов, Polyana</p>
-      </div>
-    </header>
-
-    <main>
-      <section class="section" id="details" aria-labelledby="details-title">
-        <div class="section__header">
-          <h2 id="details-title">Информация для гостей</h2>
-          <p>Мы будем рады разделить этот день с вами.</p>
-        </div>
-
-        <div class="info-grid">
-          <article class="info-item">
-            <span class="info-item__label">Дата и время</span>
-            <strong>20 августа 2026, 16:00</strong>
-          </article>
-          <article class="info-item">
-            <span class="info-item__label">Место</span>
-            <strong>г. Серпухов, Polyana</strong>
-          </article>
-          <article class="info-item">
-            <span class="info-item__label">Карта</span>
-            <a
-              href="https://yandex.ru/maps/?text=%D0%A1%D0%B5%D1%80%D0%BF%D1%83%D1%85%D0%BE%D0%B2%20Polyana"
-              target="_blank"
-              rel="noreferrer"
+    <main class="wedding-page">
+      <section class="hero-section" id="home" aria-label="Приглашение">
+        <div class="hero-copy">
+          <h1 class="hero-title" aria-label="Алиса Александр">
+            <img
+              class="hero-title-image"
+              src="assets/generated/hero-title-cropped.png"
+              alt=""
+              aria-hidden="true"
             >
-              Открыть поиск места
-            </a>
+          </h1>
+          <figure class="soft-photo hero-photo" aria-label="Фотография пары">
+            <img src="assets/thisislove.png" alt="">
+          </figure>
+          <time class="wedding-calendar" datetime="2026-08-20" aria-label="20 августа 2026 года">
+            <span class="calendar-month">Август</span>
+            <span class="calendar-weekdays" aria-hidden="true">
+              <span>пн</span>
+              <span>вт</span>
+              <span>ср</span>
+              <span>чт</span>
+              <span>пт</span>
+              <span>сб</span>
+              <span>вс</span>
+            </span>
+            <span class="calendar-grid" aria-hidden="true">
+              <span>17</span>
+              <span>18</span>
+              <span>19</span>
+              <span class="calendar-date">
+                20
+                <img src="assets/generated/calendar-heart.png" alt="">
+              </span>
+              <span>21</span>
+              <span>22</span>
+              <span>23</span>
+            </span>
+          </time>
+          <div
+            class="hero-countdown"
+            id="hero-countdown"
+            data-target="2026-08-20T16:00:00+03:00"
+            aria-label="Обратный отсчет до свадьбы"
+          >
+            <span>
+              <b data-countdown-days>00</b>
+              <small>дней</small>
+            </span>
+            <span>
+              <b data-countdown-hours>00</b>
+              <small>часов</small>
+            </span>
+            <span>
+              <b data-countdown-minutes>00</b>
+              <small>минут</small>
+            </span>
+            <span>
+              <b data-countdown-seconds>00</b>
+              <small>секунд</small>
+            </span>
+          </div>
+          <img
+            class="hero-divider"
+            src="assets/generated/hero-heart-line-transparent.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </div>
+      </section>
+
+      <section class="place-section" id="place" aria-labelledby="place-title">
+        <figure class="soft-photo place-photo" aria-label="Фотография места свадьбы">
+          <img src="assets/polyana.png" alt="">
+        </figure>
+
+        <div class="place-copy">
+          <h2 class="script section-title" id="place-title">Место</h2>
+          <p class="body-copy">
+            Усадьба Серебряный Ключ<br>
+            с. Тихие Луга, набережная,<br>
+            владение № 3
+          </p>
+          <a
+            class="underlined-link"
+            href="https://yandex.ru/maps/?text=%D0%A3%D1%81%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D1%8B%D0%B9%20%D0%9A%D0%BB%D1%8E%D1%87"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Смотреть на карте
+          </a>
+        </div>
+      </section>
+
+      <section class="love-section" aria-label="Любовь и дресс-код">
+        <div class="love-script" aria-hidden="true">
+          <span>this is love</span>
+          <span>this is love</span>
+          <span>this is love</span>
+          <span>this is love</span>
+        </div>
+
+        <figure class="soft-photo love-photo" aria-label="Фотография пары">
+          <img src="assets/thisislove.png" alt="">
+        </figure>
+
+        <img
+          class="line-couple"
+          src="assets/reference/suit-dress-lineart.png"
+          alt=""
+          aria-hidden="true"
+        >
+
+        <div class="dress-copy" id="dress-code">
+          <p class="body-copy">
+            Мы будем рады, если в своих нарядах<br>
+            вы поддержите цветовую палитру<br>
+            нашей свадьбы
+          </p>
+          <div class="glass-palette" aria-label="Цветовая палитра свадьбы">
+            <span class="glass glass--graphite"><i></i></span>
+            <span class="glass glass--wine"><i></i></span>
+            <span class="glass glass--blush"><i></i></span>
+            <span class="glass glass--taupe"><i></i></span>
+            <span class="glass glass--cocoa"><i></i></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="wishes-section" id="wishes" aria-labelledby="wishes-title">
+        <div class="wave wave--wishes" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+        <h2 class="script wishes-title" id="wishes-title">Несколько пожеланий</h2>
+        <div class="wish-list">
+          <article>
+            <span class="script">01</span>
+            <p>
+              Мы решили пригласить всех гостей<br>
+              на наш праздник без детей,<br>
+              чтобы у всех была возможность<br>
+              расслабиться и насладиться нашим днем
+            </p>
+          </article>
+          <article>
+            <span class="script">02</span>
+            <p>
+              Очень просим воздержаться от криков<br>
+              “Горько!” и сохранить атмосферу<br>
+              семейного уютного праздника
+            </p>
+          </article>
+          <article>
+            <span class="script">03</span>
+            <p>
+              Мы очень ценим вашу заботу<br>
+              и внимание и будем рады любому<br>
+              подарку, но пожалуйста, не дарите нам<br>
+              цветы, ведь мы не успеем насладиться<br>
+              их невероятной красотой
+            </p>
           </article>
         </div>
       </section>
 
-      <section class="section" id="dress-code" aria-labelledby="dress-title">
-        <div class="section__header">
-          <h2 id="dress-title">Дресс-код</h2>
-          <p>Финальные оттенки уточним позже, но общий ориентир уже можно держать в голове.</p>
-        </div>
-
-        <div class="palette" aria-label="Цветовая палитра для одежды">
-          <div class="palette__item">
-            <span class="swatch swatch--olive" aria-hidden="true"></span>
-            <span>Оливковый</span>
-          </div>
-          <div class="palette__item">
-            <span class="swatch swatch--brown" aria-hidden="true"></span>
-            <span>Коричневый</span>
-          </div>
-          <div class="palette__item">
-            <span class="swatch swatch--burgundy" aria-hidden="true"></span>
-            <span>Бордовый</span>
+      <section class="contacts-section" id="contacts" aria-labelledby="contacts-title">
+        <div class="contacts-copy">
+          <h2 class="script contacts-title" id="contacts-title">По всем вопросам</h2>
+          <div class="contacts-grid">
+            <p>
+              Обращайтесь к нашему<br>
+              организатору Алене<br>
+              <a class="underlined-link" href="tel:+71234567890">+7 123 456-78-90</a>
+            </p>
+            <p>
+              Присоединяйтесь к общему<br>
+              чату гостей<br>
+              <a class="underlined-link" href="https://t.me/" target="_blank" rel="noreferrer">
+                Телеграм
+              </a>
+            </p>
           </div>
         </div>
 
-        <div class="outfit-grid" aria-label="Примеры того, как можно одеться">
-          <article class="outfit-card">
-            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер женского образа">
-              Фото позже
-            </div>
-            <h3>Женский образ</h3>
-            <p>Платье, костюм или комплект в спокойных природных оттенках палитры.</p>
-          </article>
-          <article class="outfit-card">
-            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер мужского образа">
-              Фото позже
-            </div>
-            <h3>Мужской образ</h3>
-            <p>Костюм, брюки с рубашкой или жакет в коричневой, оливковой или бордовой гамме.</p>
-          </article>
-          <article class="outfit-card">
-            <div class="outfit-card__placeholder" role="img" aria-label="Плейсхолдер универсального образа">
-              Фото позже
-            </div>
-            <h3>Универсально</h3>
-            <p>Можно добавить цвет палитры через аксессуары: галстук, платок, обувь или сумку.</p>
-          </article>
-        </div>
+        <figure class="soft-photo contacts-photo" aria-label="Пейзаж места свадьбы">
+          <img src="assets/swans-lake-background.png" alt="">
+        </figure>
       </section>
 
-      <section class="section section--form" id="rsvp" aria-labelledby="rsvp-title">
-        <div class="section__header">
-          <h2 id="rsvp-title">Анкета гостей</h2>
-          <p>Пожалуйста, заполните ответы для всех гостей из вашего приглашения.</p>
+      <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
+        <figure class="soft-photo rsvp-photo" aria-label="Фотография пары">
+          <img src="assets/main.png" alt="">
+        </figure>
+
+        <div class="rsvp-panel">
+          <h2 class="script rsvp-title" id="rsvp-title">
+            С нетерпением<br>
+            ждем встречи!
+          </h2>
+          <div class="rsvp-rule" aria-hidden="true"></div>
+          <p class="rsvp-label">RSVP</p>
+          <p class="rsvp-lead">
+            Будем благодарны за ответ<br>
+            до <strong>20 июля 2026 года</strong>
+          </p>
+
+          <form class="rsvp-form" id="rsvp-form" novalidate>
+            <div class="invite-state" id="invite-state" role="status" aria-live="polite">
+              Загружаем приглашение...
+            </div>
+
+            <div class="guest-list" id="guest-list"></div>
+
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+            <button class="submit-button" type="submit" id="submit-button" hidden>
+              Отправить
+            </button>
+          </form>
         </div>
-
-        <form class="rsvp-form" id="rsvp-form" novalidate>
-          <div class="invite-state" id="invite-state" role="status" aria-live="polite">
-            Загружаем приглашение...
-          </div>
-
-          <div class="guest-list" id="guest-list"></div>
-
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-
-          <button class="submit-button" type="submit" id="submit-button" hidden>
-            Сохранить ответы
-          </button>
-        </form>
       </section>
     </main>
 
-    <footer class="footer">
-      <p>До встречи 20 августа 2026 года.</p>
-    </footer>
-
-    <script src="script.js?v=20260524-second-day-v1"></script>
+    <script src="script.js?v=20260602-hero-countdown"></script>
   </body>
 </html>

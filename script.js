@@ -9,10 +9,46 @@ const inviteState = document.querySelector("#invite-state");
 const guestList = document.querySelector("#guest-list");
 const statusNode = document.querySelector("#form-status");
 const submitButton = document.querySelector("#submit-button");
+const heroCountdown = document.querySelector("#hero-countdown");
 
 const params = new URLSearchParams(window.location.search);
 const groupId = params.get("groupId") || params.get("gid");
 let guests = [];
+
+function initHeroCountdown() {
+  if (!heroCountdown) {
+    return;
+  }
+
+  const target = new Date(heroCountdown.dataset.target).getTime();
+  const daysNode = heroCountdown.querySelector("[data-countdown-days]");
+  const hoursNode = heroCountdown.querySelector("[data-countdown-hours]");
+  const minutesNode = heroCountdown.querySelector("[data-countdown-minutes]");
+  const secondsNode = heroCountdown.querySelector("[data-countdown-seconds]");
+
+  if (!target || !daysNode || !hoursNode || !minutesNode || !secondsNode) {
+    return;
+  }
+
+  const pad = (value) => String(value).padStart(2, "0");
+
+  function updateCountdown() {
+    const diff = Math.max(0, target - Date.now());
+    const totalSeconds = Math.floor(diff / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    daysNode.textContent = pad(days);
+    hoursNode.textContent = pad(hours);
+    minutesNode.textContent = pad(minutes);
+    secondsNode.textContent = pad(seconds);
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
+}
 
 const FIRST_DAY_ALCOHOL_CHOICES = [
   ["cocktails", "Коктейли"],
@@ -648,4 +684,5 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
+initHeroCountdown();
 loadGroup();

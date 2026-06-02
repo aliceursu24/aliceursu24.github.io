@@ -1,0 +1,115 @@
+- main [ref=e2]:
+  - region "Приглашение" [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Алиса Александр" [level=1] [ref=e5]:
+        - img [ref=e6]
+      - figure "Фотография пары" [ref=e7]
+      - time [ref=e8]:
+        - generic [ref=e9]: Август
+        - generic [ref=e10]:
+          - generic [ref=e11]: пн
+          - generic [ref=e12]: вт
+          - generic [ref=e13]: ср
+          - generic [ref=e14]: чт
+          - generic [ref=e15]: пт
+          - generic [ref=e16]: сб
+          - generic [ref=e17]: вс
+        - generic [ref=e18]:
+          - generic [ref=e19]: "17"
+          - generic [ref=e20]: "18"
+          - generic [ref=e21]: "19"
+          - generic [ref=e22]: "20"
+          - generic [ref=e23]: "21"
+          - generic [ref=e24]: "22"
+          - generic [ref=e25]: "23"
+      - generic "Обратный отсчет до свадьбы" [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: "78"
+          - generic [ref=e29]: дней
+        - generic [ref=e30]:
+          - generic [ref=e31]: "15"
+          - generic [ref=e32]: часов
+        - generic [ref=e33]:
+          - generic [ref=e34]: "40"
+          - generic [ref=e35]: минут
+        - generic [ref=e36]:
+          - generic [ref=e37]: "04"
+          - generic [ref=e38]: секунд
+      - img [ref=e39]
+  - region "Место" [ref=e40]:
+    - figure "Фотография места свадьбы" [ref=e41]
+    - generic [ref=e42]:
+      - heading "Место" [level=2] [ref=e43]
+      - paragraph [ref=e44]:
+        - text: Усадьба Серебряный Ключ
+        - text: с. Тихие Луга, набережная,
+        - text: владение № 3
+      - link "Смотреть на карте" [ref=e45] [cursor=pointer]:
+        - /url: https://yandex.ru/maps/?text=%D0%A3%D1%81%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D1%8B%D0%B9%20%D0%9A%D0%BB%D1%8E%D1%87
+  - region "Любовь и дресс-код" [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]: this is love
+      - generic [ref=e49]: this is love
+      - generic [ref=e50]: this is love
+      - generic [ref=e51]: this is love
+    - figure "Фотография пары" [ref=e52]
+    - img [ref=e53]
+    - generic [ref=e54]:
+      - paragraph [ref=e55]:
+        - text: Мы будем рады, если в своих нарядах
+        - text: вы поддержите цветовую палитру
+        - text: нашей свадьбы
+      - generic "Цветовая палитра свадьбы" [ref=e56]
+  - region "Несколько пожеланий" [ref=e67]:
+    - heading "Несколько пожеланий" [level=2] [ref=e68]
+    - generic [ref=e69]:
+      - article [ref=e70]:
+        - generic [ref=e71]: "01"
+        - paragraph [ref=e72]:
+          - text: Мы решили пригласить всех гостей
+          - text: на наш праздник без детей,
+          - text: чтобы у всех была возможность
+          - text: расслабиться и насладиться нашим днем
+      - article [ref=e73]:
+        - generic [ref=e74]: "02"
+        - paragraph [ref=e75]:
+          - text: Очень просим воздержаться от криков
+          - text: “Горько!” и сохранить атмосферу
+          - text: семейного уютного праздника
+      - article [ref=e76]:
+        - generic [ref=e77]: "03"
+        - paragraph [ref=e78]:
+          - text: Мы очень ценим вашу заботу
+          - text: и внимание и будем рады любому
+          - text: подарку, но пожалуйста, не дарите нам
+          - text: цветы, ведь мы не успеем насладиться
+          - text: их невероятной красотой
+  - region "По всем вопросам" [ref=e79]:
+    - generic [ref=e80]:
+      - heading "По всем вопросам" [level=2] [ref=e81]
+      - generic [ref=e82]:
+        - paragraph [ref=e83]:
+          - text: Обращайтесь к нашему
+          - text: организатору Алене
+          - link "+7 123 456-78-90" [ref=e84] [cursor=pointer]:
+            - /url: tel:+71234567890
+        - paragraph [ref=e85]:
+          - text: Присоединяйтесь к общему
+          - text: чату гостей
+          - link "Телеграм" [ref=e86] [cursor=pointer]:
+            - /url: https://t.me/
+    - figure "Пейзаж места свадьбы" [ref=e87]
+  - region "С нетерпением ждем встречи!" [ref=e88]:
+    - figure "Фотография пары" [ref=e89]
+    - generic [ref=e90]:
+      - heading "С нетерпением ждем встречи!" [level=2] [ref=e91]:
+        - text: С нетерпением
+        - text: ждем встречи!
+      - paragraph [ref=e93]: RSVP
+      - paragraph [ref=e94]:
+        - text: Будем благодарны за ответ
+        - text: до
+        - strong [ref=e95]: 20 июля 2026 года
+      - generic [ref=e96]:
+        - status [ref=e97]: Не удалось найти ваше приглашение. Пожалуйста, свяжитесь с нами, и мы поможем с анкетой.
+        - status [ref=e98]

@@ -1,0 +1,88 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: 20.08.2026
+    - paragraph [ref=e5]: Wedding
+    - generic [ref=e6]:
+      - text: this is love this is love this is love
+      - heading "Александр и Алиса" [level=1] [ref=e7]:
+        - generic [ref=e8]: Александр
+        - generic [ref=e9]: "&"
+        - generic [ref=e10]: Алиса
+      - paragraph [ref=e11]: мы женимся!
+      - generic "Дата свадьбы 20 августа 2026 года" [ref=e12]:
+        - generic [ref=e13]: "20"
+        - generic [ref=e14]: "08"
+        - generic [ref=e15]: "26"
+      - generic "Места для будущих фотографий пары" [ref=e16]:
+        - img "Плейсхолдер горизонтальной фотографии" [ref=e17]
+        - img "Плейсхолдер вертикальной фотографии" [ref=e18]
+      - paragraph [ref=e19]: И в этот прекрасный день мы хотим вместе с вами разделить яркие мгновения и искренние улыбки.
+  - region "наш август" [ref=e20]:
+    - text: "26"
+    - paragraph [ref=e22]: наш август
+    - generic "Дата свадьбы 20 августа 2026 года" [ref=e23]:
+      - generic [ref=e24]: "18"
+      - generic [ref=e25]: "19"
+      - strong [ref=e26]: "20"
+      - generic [ref=e27]: "21"
+      - generic [ref=e28]: "22"
+    - paragraph [ref=e29]: "2026"
+  - region "программа" [ref=e30]:
+    - text: Wedding
+    - paragraph [ref=e31]: программа
+    - list [ref=e32]:
+      - listitem [ref=e33]:
+        - time [ref=e34]: 16:00
+        - generic [ref=e35]:
+          - strong [ref=e36]: Сбор гостей
+          - generic [ref=e37]: Приветственный фуршет и первые объятия.
+      - listitem [ref=e38]:
+        - time [ref=e39]: 17:00
+        - generic [ref=e40]:
+          - strong [ref=e41]: Церемония
+          - generic [ref=e42]: Самый трогательный момент дня.
+      - listitem [ref=e43]:
+        - time [ref=e44]: 17:30
+        - generic [ref=e45]:
+          - strong [ref=e46]: Банкет
+          - generic [ref=e47]: Вкусные блюда, тосты и теплая программа.
+      - listitem [ref=e48]:
+        - time [ref=e49]: 22:00
+        - generic [ref=e50]:
+          - strong [ref=e51]: Танцы
+          - generic [ref=e52]: Праздник до позднего вечера.
+  - region "место" [ref=e53]:
+    - text: Место
+    - generic [ref=e55]:
+      - paragraph [ref=e56]: место
+      - paragraph [ref=e57]: "Торжество пройдет в уютном пространстве Polyana в Серпухове: с природной атмосферой, мягким светом и местом для теплого летнего вечера."
+      - paragraph [ref=e58]: г. Серпухов, Polyana
+      - link "Открыть карту" [ref=e59] [cursor=pointer]:
+        - /url: https://yandex.ru/maps/?text=%D0%A1%D0%B5%D1%80%D0%BF%D1%83%D1%85%D0%BE%D0%B2%20Polyana
+  - region "Место для будущей фотографии" [ref=e60]:
+    - text: love
+    - paragraph [ref=e61]: Любовь смотрит не глазами, а сердцем
+    - img "Плейсхолдер фотографии пары" [ref=e62]
+  - region "дресс-код" [ref=e63]:
+    - text: palette
+    - generic [ref=e64]:
+      - paragraph [ref=e65]: дресс-код
+      - paragraph [ref=e66]: Нам будет приятно, если ваши образы поддержат природную палитру с коричнево-оливковыми оттенками и бордовыми акцентами.
+      - generic "Цветовая палитра для одежды" [ref=e67]:
+        - generic [ref=e68]: Шалфей
+        - generic [ref=e70]: Оливковый
+        - generic [ref=e72]: Шоколад
+        - generic [ref=e74]: Тауп
+        - generic [ref=e76]: Бордо
+  - region "пожелание" [ref=e79]:
+    - text: Важно
+    - paragraph [ref=e80]: пожелание
+    - paragraph [ref=e81]: Самым ценным подарком для нас будет ваше присутствие. Если захотите порадовать нас дополнительно, будем благодарны за вклад в семейные мечты.
+    - paragraph [ref=e82]: Пожалуйста, по возможности не дарите цветы.
+  - region "анкета гостей" [ref=e83]:
+    - text: RSVP
+    - paragraph [ref=e84]: анкета гостей
+    - paragraph [ref=e85]: Пожалуйста, заполните ответы для всех гостей из вашего приглашения.
+    - generic [ref=e86]:
+      - status [ref=e87]: Не удалось найти ваше приглашение. Пожалуйста, свяжитесь с нами, и мы поможем с анкетой.
+      - status [ref=e89]
