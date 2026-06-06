@@ -8,7 +8,7 @@
       content="Информация для гостей свадьбы Александра и Алисы 20 августа 2026 года."
     >
     <title>Алиса и Александр | Свадьба 20.08.2026</title>
-    <link rel="stylesheet" href="styles.css?v=20260606-place-polyana-gap">
+    <link rel="stylesheet" href="styles.css?v=20260606-rsvp-title-images">
   </head>
   <body>
     <main class="wedding-page">
@@ -37,7 +37,14 @@
             </figure>
           </div>
           <time class="wedding-calendar" datetime="2026-08-20" aria-label="20 августа 2026 года">
-            <span class="calendar-month">Август</span>
+            <span class="calendar-month">
+              <img
+                class="title-image calendar-month-title"
+                src="assets/generated/title-august.png"
+                alt=""
+                aria-hidden="true"
+              >
+            </span>
             <span class="calendar-weekdays" aria-hidden="true">
               <span>пн</span>
               <span>вт</span>
@@ -93,7 +100,14 @@
       </section>
 
       <section class="place-section" id="place" aria-labelledby="place-title">
-        <h2 class="script section-title place-title" id="place-title">Место</h2>
+        <h2 class="script section-title place-title generated-title" id="place-title" aria-label="Место">
+          <img
+            class="title-image section-heading-image place-title-image"
+            src="assets/generated/title-place.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </h2>
 
         <div class="place-content">
           <figure class="soft-photo place-photo" aria-label="Фотография места свадьбы">
@@ -101,7 +115,14 @@
           </figure>
 
           <div class="place-copy">
-            <h3 class="place-heading">Polyana</h3>
+            <h3 class="place-heading generated-title" aria-label="Polyana">
+              <img
+                class="title-image place-heading-image"
+                src="assets/generated/title-polyana.png"
+                alt=""
+                aria-hidden="true"
+              >
+            </h3>
             <p class="body-copy">
               Уединенная и живописная площадка среди природы, где пройдет наш праздник.<br>
               Находится недалеко от г. Серпухова
@@ -119,7 +140,14 @@
       </section>
 
       <section class="dress-section" id="dress-code" aria-labelledby="dress-title">
-        <h2 class="script section-title dress-title" id="dress-title">Дресс код</h2>
+        <h2 class="script section-title dress-title generated-title" id="dress-title" aria-label="Дресс код">
+          <img
+            class="title-image section-heading-image dress-title-image"
+            src="assets/generated/title-dress-code.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </h2>
 
         <div class="dress-looks" aria-label="Примеры нарядов в цветовой палитре свадьбы">
           <img src="assets/generated/dress-code-men.png" alt="Мужские наряды в цветовой палитре свадьбы">
@@ -166,7 +194,14 @@
             alt=""
           >
         </div>
-        <h2 class="script wishes-title" id="wishes-title">Несколько пожеланий</h2>
+        <h2 class="script wishes-title generated-title" id="wishes-title" aria-label="Несколько пожеланий">
+          <img
+            class="title-image wishes-title-image"
+            src="assets/generated/title-wishes.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </h2>
         <div class="wish-list">
           <article>
             <span class="script">01</span>
@@ -194,7 +229,14 @@
 
       <section class="contacts-section" id="contacts" aria-labelledby="contacts-title">
         <div class="contacts-copy">
-          <h2 class="script contacts-title" id="contacts-title">Чат</h2>
+          <h2 class="script contacts-title generated-title" id="contacts-title" aria-label="Чат">
+            <img
+              class="title-image contacts-title-image"
+              src="assets/generated/title-chat.png"
+              alt=""
+              aria-hidden="true"
+            >
+          </h2>
           <div class="contacts-card">
             <p>
               Мы создали телеграм чат, посвященный нашему празднику.
@@ -211,20 +253,27 @@
       </section>
 
       <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
-        <figure class="rsvp-photo" aria-label="Фотография пары">
-          <img src="assets/main.png" alt="">
+        <h2 class="script rsvp-title generated-title" id="rsvp-title" aria-label="С нетерпением ждем встречи!">
+          <img
+            class="title-image rsvp-title-image"
+            src="assets/generated/title-rsvp-heading.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </h2>
+
+        <figure class="rsvp-photo" aria-label="Фотография собаки">
+          <img src="assets/sobaka.png" alt="">
         </figure>
 
         <div class="rsvp-panel">
-          <h2 class="script rsvp-title" id="rsvp-title">
-            С нетерпением<br>
-            ждем встречи!
-          </h2>
-          <div class="rsvp-rule" aria-hidden="true"></div>
-          <p class="rsvp-label">RSVP</p>
-          <p class="rsvp-lead">
-            Будем благодарны за ответ<br>
-            до <strong>20 июля 2026 года</strong>
+          <p class="script rsvp-label generated-title" aria-label="Анкета">
+            <img
+              class="title-image rsvp-label-image"
+              src="assets/generated/title-rsvp-label.png"
+              alt=""
+              aria-hidden="true"
+            >
           </p>
 
           <form class="rsvp-form" id="rsvp-form" novalidate>
@@ -244,6 +293,6 @@
       </section>
     </main>
 
-    <script src="script.js?v=20260602-hero-countdown"></script>
+    <script src="script.js?v=20260606-guest-count"></script>
   </body>
 </html>

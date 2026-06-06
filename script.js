@@ -556,7 +556,10 @@ async function loadGroup() {
     }
 
     renderGuests(data.guests);
-    setInviteState("Приглашение найдено. Ответы можно обновить в любой момент.", "success");
+    setInviteState(
+      `Приглашение найдено. Количество гостей: ${data.guests.length}. Ответы можно обновить в любой момент.`,
+      "success",
+    );
   } catch (error) {
     console.error("Failed to load RSVP group:", error);
     setInviteState(RSVP_ERROR_MESSAGE, "error");
