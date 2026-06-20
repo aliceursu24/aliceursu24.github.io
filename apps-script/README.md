@@ -6,7 +6,7 @@
 2. Add the header row:
 
 ```text
-groupId | personId | lastName | firstName | attendance | alcoholOptions | alcoholOther | transport | secondDayInvited | secondDayAttendance | secondDayStayOvernight | secondDayAlcoholOptions | secondDayAlcoholOther | updatedAt
+groupId | personId | lastName | firstName | phone | attendance | alcoholOptions | alcoholOther | transport | secondDayInvited | secondDayAttendance | secondDayStayOvernight | secondDayAlcoholOptions | secondDayAlcoholOther | updatedAt
 ```
 
 3. Fill one row per guest. `groupId` and `personId` should be UUID values.
@@ -41,6 +41,7 @@ Content-Type: text/plain;charset=utf-8
   "guests": [
     {
       "personId": "uuid",
+      "phone": "+7 999 123-45-67",
       "attendance": "yes",
       "alcoholOptions": ["wine"],
       "alcoholOther": "",

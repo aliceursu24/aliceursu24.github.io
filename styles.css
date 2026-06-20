@@ -822,6 +822,11 @@ fieldset {
   border-bottom: 1px solid rgba(142, 16, 36, 0.14);
 }
 
+.form-group.is-invalid {
+  background: rgba(142, 16, 36, 0.045);
+  box-shadow: inset 3px 0 0 rgba(142, 16, 36, 0.5);
+}
+
 .guest-card > .form-group legend,
 .conditional-fields legend,
 .day-section legend {
@@ -857,6 +862,11 @@ fieldset {
   padding: 8px 0;
 }
 
+.form-row--question {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
 input[type="text"] {
   width: 100%;
   min-height: 34px;
@@ -867,6 +877,22 @@ input[type="text"] {
   background: transparent;
   color: var(--ink);
   font: 14px/1.2 var(--sans);
+}
+
+input[type="tel"] {
+  width: 100%;
+  min-height: 34px;
+  border: 0;
+  border-bottom: 1px solid rgba(142, 16, 36, 0.45);
+  border-radius: 0;
+  padding: 7px 1px;
+  background: transparent;
+  color: var(--ink);
+  font: 14px/1.2 var(--sans);
+}
+
+input[aria-invalid="true"] {
+  border-bottom-color: var(--wine);
 }
 
 .choice {
@@ -910,11 +936,15 @@ input[type="text"] {
 
 .field-error,
 .form-status {
-  min-height: 1.35em;
   margin: 7px 0 0;
   color: var(--wine);
   font-size: 12px;
   line-height: 1.35;
+}
+
+.field-error:empty {
+  min-height: 0;
+  margin: 0;
 }
 
 .form-status.is-success {

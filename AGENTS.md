@@ -48,6 +48,7 @@ groupId
 personId
 lastName
 firstName
+phone
 attendance
 alcoholOptions
 alcoholOther
@@ -67,7 +68,7 @@ updatedAt
 - `personId` уникален для каждого человека.
 - `lastName` и `firstName` заполняются вручную и не редактируются на сайте.
 - `secondDayInvited` заполняется вручную и управляет тем, видит ли гость вопросы второго дня.
-- `attendance`, `alcoholOptions`, `alcoholOther`, `transport`, `secondDayAttendance`, `secondDayStayOvernight`, `secondDayAlcoholOptions`, `secondDayAlcoholOther`, `updatedAt` обновляются сайтом через Apps Script.
+- `phone`, `attendance`, `alcoholOptions`, `alcoholOther`, `transport`, `secondDayAttendance`, `secondDayStayOvernight`, `secondDayAlcoholOptions`, `secondDayAlcoholOther`, `updatedAt` обновляются сайтом через Apps Script.
 - Не переименовывать технические заголовки в `Guests`, иначе `apps-script/Code.js` перестанет находить колонки.
 - Если нужно поменять структуру `Guests`, сначала обновить `HEADERS` и логику чтения/записи в `apps-script/Code.js`.
 

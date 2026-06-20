@@ -101,6 +101,32 @@ function getSecondDayAlcoholCheckboxes(guestId) {
   ];
 }
 
+function setFieldError(container, errorNode, message = "") {
+  if (!container || !errorNode) {
+    return;
+  }
+
+  container.classList.toggle("is-invalid", Boolean(message));
+  errorNode.textContent = message;
+}
+
+function setInputError(input, errorNode, message = "") {
+  const container = input ? input.closest(".form-group") || input.closest(".form-row") : null;
+  setFieldError(container, errorNode, message);
+
+  if (input) {
+    input.setAttribute("aria-invalid", message ? "true" : "false");
+  }
+}
+
+function setRadioGroupError(radios, errorNode, message = "") {
+  const container = radios[0] ? radios[0].closest(".form-group") : null;
+  setFieldError(container, errorNode, message);
+  radios.forEach((radio) => {
+    radio.setAttribute("aria-invalid", message ? "true" : "false");
+  });
+}
+
 function isSecondDayInvited(guest) {
   return guest.secondDayInvited === true;
 }
@@ -113,6 +139,7 @@ function setGuestDetailsVisibility(guestId) {
   const alcoholCheckboxes = getAlcoholCheckboxes(guestId);
   const otherInput = getGuestField(guestId, "[data-alcohol-other]");
   const alcoholError = getGuestField(guestId, "[data-alcohol-error]");
+  const transportError = getGuestField(guestId, "[data-transport-error]");
   const attendance = getCheckedValue(guestId, "attendance");
   const shouldHide = attendance === "no";
   const shouldRequireDetails = attendance === "yes" || attendance === "unknown";
@@ -131,7 +158,8 @@ function setGuestDetailsVisibility(guestId) {
       checkbox.checked = false;
     });
     otherInput.value = "";
-    alcoholError.textContent = "";
+    setFieldError(alcoholError.closest(".form-group"), alcoholError);
+    setRadioGroupError(transportRadios, transportError);
   }
 }
 
@@ -148,6 +176,7 @@ function setSecondDayDetailsVisibility(guestId) {
   const alcoholCheckboxes = getSecondDayAlcoholCheckboxes(guestId);
   const otherInput = getGuestField(guestId, "[data-second-day-alcohol-other]");
   const alcoholError = getGuestField(guestId, "[data-second-day-alcohol-error]");
+  const stayError = getGuestField(guestId, "[data-second-day-stay-error]");
   const attendance = getCheckedValue(guestId, "secondDayAttendance");
   const shouldHide = attendance === "no";
   const shouldRequireDetails = attendance === "yes" || attendance === "unknown";
@@ -166,16 +195,18 @@ function setSecondDayDetailsVisibility(guestId) {
       checkbox.checked = false;
     });
     otherInput.value = "";
-    alcoholError.textContent = "";
+    setFieldError(alcoholError.closest(".form-group"), alcoholError);
+    setRadioGroupError(stayRadios, stayError);
   }
 }
 
 function validateAlcohol(guestId) {
   const attendance = getCheckedValue(guestId, "attendance");
   const alcoholError = getGuestField(guestId, "[data-alcohol-error]");
+  const alcoholGroup = alcoholError.closest(".form-group");
 
   if (attendance !== "yes" && attendance !== "unknown") {
-    alcoholError.textContent = "";
+    setFieldError(alcoholGroup, alcoholError);
     return true;
   }
 
@@ -184,11 +215,15 @@ function validateAlcohol(guestId) {
   const hasOtherChoice = otherInput.value.trim().length > 0;
 
   if (!hasAlcoholChoice && !hasOtherChoice) {
-    alcoholError.textContent = "Выберите хотя бы один вариант или заполните поле «Свой вариант».";
+    setFieldError(
+      alcoholGroup,
+      alcoholError,
+      "Выберите хотя бы один вариант или заполните поле «Свой вариант».",
+    );
     return false;
   }
 
-  alcoholError.textContent = "";
+  setFieldError(alcoholGroup, alcoholError);
   return true;
 }
 
@@ -200,9 +235,10 @@ function validateSecondDayAlcohol(guestId) {
   }
 
   const attendance = getCheckedValue(guestId, "secondDayAttendance");
+  const alcoholGroup = alcoholError.closest(".form-group");
 
   if (attendance !== "yes" && attendance !== "unknown") {
-    alcoholError.textContent = "";
+    setFieldError(alcoholGroup, alcoholError);
     return true;
   }
 
@@ -213,12 +249,55 @@ function validateSecondDayAlcohol(guestId) {
   const hasOtherChoice = otherInput.value.trim().length > 0;
 
   if (!hasAlcoholChoice && !hasOtherChoice) {
-    alcoholError.textContent = "Выберите хотя бы один вариант или заполните поле «Свой вариант».";
+    setFieldError(
+      alcoholGroup,
+      alcoholError,
+      "Выберите хотя бы один вариант или заполните поле «Свой вариант».",
+    );
     return false;
   }
 
-  alcoholError.textContent = "";
+  setFieldError(alcoholGroup, alcoholError);
   return true;
+}
+
+function validatePhone(guestId) {
+  const input = getGuestField(guestId, "[data-phone]");
+  const error = getGuestField(guestId, "[data-phone-error]");
+
+  if (input.value.trim()) {
+    setInputError(input, error);
+    return true;
+  }
+
+  setInputError(input, error, "Укажите номер телефона.");
+  return false;
+}
+
+function validateRequiredRadio(guestId, name, errorSelector, message) {
+  const radios = [
+    ...guestList.querySelectorAll(
+      `[data-guest-id="${guestId}"] input[name="${name}-${guestId}"]`,
+    ),
+  ];
+  const error = getGuestField(guestId, errorSelector);
+
+  if (radios.some((radio) => radio.checked)) {
+    setRadioGroupError(radios, error);
+    return true;
+  }
+
+  setRadioGroupError(radios, error, message);
+  return false;
+}
+
+function focusFirstInvalidField() {
+  const firstInvalid = guestList.querySelector('[aria-invalid="true"]');
+
+  if (firstInvalid) {
+    firstInvalid.focus({ preventScroll: true });
+    firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 }
 
 function escapeHtml(value) {
@@ -250,6 +329,7 @@ function renderGuestCard(guest, index) {
   const lastName = escapeHtml(guest.lastName);
   const attendance = guest.attendance || "";
   const transport = guest.transport || "";
+  const phone = escapeHtml(guest.phone || "");
   const alcoholOptions = normalizeOptions(guest.alcoholOptions);
   const alcoholOther = escapeHtml(guest.alcoholOther || "");
   const secondDayAlcoholOptions = normalizeOptions(guest.secondDayAlcoholOptions);
@@ -283,7 +363,23 @@ function renderGuestCard(guest, index) {
           }>
           <span>Пока не знаю</span>
         </label>
+        <p class="field-error" data-attendance-error aria-live="polite"></p>
       </fieldset>
+
+      <div class="form-group">
+        <label class="form-row form-row--question">
+          Номер телефона
+          <input
+            name="phone-${personId}"
+            type="tel"
+            autocomplete="tel"
+            value="${phone}"
+            required
+            data-phone
+          >
+        </label>
+        <p class="field-error" data-phone-error aria-live="polite"></p>
+      </div>
 
       <div class="conditional-fields" data-guest-details>
         <fieldset class="form-group">
@@ -316,6 +412,7 @@ function renderGuestCard(guest, index) {
             }>
             <span>Своими силами</span>
           </label>
+          <p class="field-error" data-transport-error aria-live="polite"></p>
         </fieldset>
       </div>
 
@@ -365,6 +462,7 @@ function renderSecondDaySection(
           }>
           <span>Пока не знаю</span>
         </label>
+        <p class="field-error" data-second-day-attendance-error aria-live="polite"></p>
       </fieldset>
 
       <div class="conditional-fields" data-second-day-details>
@@ -388,6 +486,7 @@ function renderSecondDaySection(
             }>
             <span>Пока не знаю</span>
           </label>
+          <p class="field-error" data-second-day-stay-error aria-live="polite"></p>
         </fieldset>
 
         <fieldset class="form-group">
@@ -469,6 +568,7 @@ function buildPayload() {
       const payload = {
         personId: guest.personId,
         attendance,
+        phone: getGuestField(guest.personId, "[data-phone]").value.trim(),
         alcoholOptions: [],
         alcoholOther: "",
         transport: "",
@@ -508,20 +608,76 @@ function buildPayload() {
 }
 
 function validateGroup() {
-  let isValid = form.reportValidity();
+  let isValid = true;
 
   guests.forEach((guest) => {
     setGuestDetailsVisibility(guest.personId);
     setSecondDayDetailsVisibility(guest.personId);
 
+    if (!validateRequiredRadio(
+      guest.personId,
+      "attendance",
+      "[data-attendance-error]",
+      "Выберите, будет ли гость присутствовать.",
+    )) {
+      isValid = false;
+    }
+
+    if (!validatePhone(guest.personId)) {
+      isValid = false;
+    }
+
     if (!validateAlcohol(guest.personId)) {
+      isValid = false;
+    }
+
+    const attendance = getCheckedValue(guest.personId, "attendance");
+
+    if (
+      (attendance === "yes" || attendance === "unknown") &&
+      !validateRequiredRadio(
+        guest.personId,
+        "transport",
+        "[data-transport-error]",
+        "Выберите, как гость планирует добираться.",
+      )
+    ) {
       isValid = false;
     }
 
     if (!validateSecondDayAlcohol(guest.personId)) {
       isValid = false;
     }
+
+    if (isSecondDayInvited(guest)) {
+      if (!validateRequiredRadio(
+        guest.personId,
+        "secondDayAttendance",
+        "[data-second-day-attendance-error]",
+        "Выберите, будет ли гость на втором дне.",
+      )) {
+        isValid = false;
+      }
+
+      const secondDayAttendance = getCheckedValue(guest.personId, "secondDayAttendance");
+
+      if (
+        (secondDayAttendance === "yes" || secondDayAttendance === "unknown") &&
+        !validateRequiredRadio(
+          guest.personId,
+          "secondDayStayOvernight",
+          "[data-second-day-stay-error]",
+          "Выберите, планирует ли гость остаться на ночь.",
+        )
+      ) {
+        isValid = false;
+      }
+    }
   });
+
+  if (!isValid) {
+    focusFirstInvalidField();
+  }
 
   return isValid;
 }
@@ -577,12 +733,42 @@ guestList.addEventListener("change", (event) => {
 
   if (event.target.name === `attendance-${guestId}`) {
     setGuestDetailsVisibility(guestId);
+    validateRequiredRadio(
+      guestId,
+      "attendance",
+      "[data-attendance-error]",
+      "Выберите, будет ли гость присутствовать.",
+    );
     validateAlcohol(guestId);
   }
 
   if (event.target.name === `secondDayAttendance-${guestId}`) {
     setSecondDayDetailsVisibility(guestId);
+    validateRequiredRadio(
+      guestId,
+      "secondDayAttendance",
+      "[data-second-day-attendance-error]",
+      "Выберите, будет ли гость на втором дне.",
+    );
     validateSecondDayAlcohol(guestId);
+  }
+
+  if (event.target.matches("[data-transport]")) {
+    validateRequiredRadio(
+      guestId,
+      "transport",
+      "[data-transport-error]",
+      "Выберите, как гость планирует добираться.",
+    );
+  }
+
+  if (event.target.matches("[data-second-day-stay]")) {
+    validateRequiredRadio(
+      guestId,
+      "secondDayStayOvernight",
+      "[data-second-day-stay-error]",
+      "Выберите, планирует ли гость остаться на ночь.",
+    );
   }
 
   if (event.target.matches("[data-alcohol]")) {
@@ -625,6 +811,12 @@ guestList.addEventListener("change", (event) => {
 });
 
 guestList.addEventListener("input", (event) => {
+  if (event.target.matches("[data-phone]")) {
+    const card = event.target.closest("[data-guest-id]");
+    validatePhone(card.dataset.guestId);
+    return;
+  }
+
   const isFirstDayOther = event.target.matches("[data-alcohol-other]");
   const isSecondDayOther = event.target.matches("[data-second-day-alcohol-other]");
 
