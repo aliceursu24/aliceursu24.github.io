@@ -8,15 +8,16 @@
   --soft: #efefed;
   --graphite: #2e3b39;
   --blush: #edc4ad;
-  --taupe: #826a57;
+  --dusty-blush: #d4b7b7;
+  --taupe: #d9c8b4;
   --cocoa: #4a2f20;
   --twist-lime: #4f672c;
   --leaf-green: #9ead6f;
-  --cannoli: #eeecdf;
-  --rosette: #cf8989;
+  --cabernet: #6f0b1a;
   --mauvewood: #aa5b69;
-  --purple-potion: #70274d;
+  --potting-soil: #4a2f20;
   --focus: #b98b52;
+  --photo-radius: 12px;
   --sans: Arial, Helvetica, sans-serif;
   --script: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive;
 }
@@ -81,7 +82,7 @@ input:focus-visible {
 
 .body-copy,
 .wish-list p,
-.contacts-card p,
+.organizer-info p,
 .invite-state,
 .form-status {
   margin: 0;
@@ -201,11 +202,19 @@ input:focus-visible {
   margin-left: clamp(38px, 4.8vw, 72px);
 }
 
+.hero-copy .body-copy.hero-invite-text {
+  width: min(100%, 760px);
+  max-width: 760px;
+  margin: clamp(34px, 4.8vw, 56px) auto 0;
+  text-align: center;
+}
+
 .soft-photo {
   position: relative;
   margin: 0;
   overflow: hidden;
   background: var(--soft);
+  border-radius: var(--photo-radius);
 }
 
 .soft-photo img {
@@ -220,36 +229,42 @@ input:focus-visible {
   display: flex;
   width: min(92vw, 760px);
   justify-content: center;
-  gap: clamp(10px, 2.6vw, 28px);
-  margin: clamp(2px, 1vw, 12px) auto 0;
+  align-items: center;
+  gap: clamp(24px, 6vw, 78px);
+  margin: clamp(8px, 1.4vw, 18px) auto 0;
+  padding: 18px 0 28px;
 }
 
 .hero-photo {
   z-index: 1;
-  flex: 0 1 330px;
-  width: min(42vw, 330px);
-  aspect-ratio: 2 / 3;
+  display: flex;
+  flex: 0 0 min(34vw, 282px);
+  flex-direction: column;
+  aspect-ratio: 0.72;
   height: auto;
+  padding: clamp(10px, 1.2vw, 13px) clamp(10px, 1.2vw, 13px) clamp(42px, 4.8vw, 62px);
   overflow: visible;
-  background: transparent;
+  background: #fffdf8;
+  border-radius: 3px;
+  box-shadow:
+    0 16px 22px rgba(38, 34, 34, 0.12),
+    0 3px 7px rgba(38, 34, 34, 0.1);
 }
 
-.hero-photo::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: url("assets/generated/photo-frame-italian-portrait-medium.png") center / contain no-repeat;
-  content: "";
-  pointer-events: none;
+.hero-photo:first-child {
+  transform: translateY(-10px) rotate(-6deg);
+}
+
+.hero-photo:nth-child(2) {
+  transform: translateY(38px) rotate(6deg);
 }
 
 .hero-photo img {
-  position: absolute;
-  left: 19.14%;
-  top: 15.62%;
-  z-index: 1;
-  width: 61.72%;
-  height: 68.36%;
+  position: static;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border-radius: 2px;
   object-position: center 36%;
   filter: none;
   transform: none;
@@ -384,26 +399,13 @@ input:focus-visible {
 .place-photo {
   width: 100%;
   aspect-ratio: 3 / 2;
-  overflow: visible;
-  background: transparent;
-}
-
-.place-photo::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: url("assets/generated/photo-frame-italian-landscape-medium.png") center / contain no-repeat;
-  content: "";
-  pointer-events: none;
 }
 
 .place-photo img {
   position: absolute;
-  left: 16.15%;
-  top: 23.24%;
-  z-index: 1;
-  width: 67.31%;
-  height: 53.71%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   filter: none;
   object-fit: cover;
   object-position: 28% 50%;
@@ -514,9 +516,9 @@ input:focus-visible {
 }
 
 .color-palette {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   width: min(100%, 330px);
-  grid-template-columns: repeat(3, 58px);
   justify-content: center;
   gap: 24px 42px;
   margin: 30px auto 18px;
@@ -524,6 +526,7 @@ input:focus-visible {
 
 .color-swatch {
   display: grid;
+  flex: 0 0 58px;
   min-width: 0;
   justify-items: center;
   color: var(--graphite);
@@ -547,31 +550,31 @@ input:focus-visible {
   color: var(--leaf-green);
 }
 
-.color-swatch--cannoli {
-  color: var(--cannoli);
+.color-swatch--taupe {
+  color: var(--taupe);
 }
 
-.color-swatch--cannoli i {
-  border-color: rgba(38, 34, 34, 0.18);
+.color-swatch--dusty-blush {
+  color: var(--dusty-blush);
 }
 
-.color-swatch--rosette {
-  color: var(--rosette);
+.color-swatch--cabernet {
+  color: var(--cabernet);
 }
 
 .color-swatch--mauvewood {
   color: var(--mauvewood);
 }
 
-.color-swatch--purple-potion {
-  color: var(--purple-potion);
+.color-swatch--potting-soil {
+  color: var(--potting-soil);
 }
 
 .wishes-section {
   position: relative;
   width: min(100% - 66px, 1160px);
   margin: 8px auto 0;
-  padding: 112px 0 58px;
+  padding: 112px 0 34px;
   text-align: center;
 }
 
@@ -638,17 +641,16 @@ input:focus-visible {
   line-height: 0.85;
 }
 
-.wish-list p,
-.contacts-card p {
+.wish-list p {
   font-size: 14px;
   line-height: 1.72;
 }
 
 .contacts-section {
   position: relative;
-  width: min(100% - 66px, 760px);
+  width: min(100% - 66px, 672px);
   margin: 0 auto;
-  padding: 22px 0 64px;
+  padding: 0 0 64px;
   text-align: center;
 }
 
@@ -659,23 +661,77 @@ input:focus-visible {
 }
 
 .contacts-title-image {
-  height: clamp(86px, 9vw, 118px);
-  transform: translateX(clamp(8px, 1.3vw, 16px));
+  width: min(100%, 520px);
+  height: auto;
 }
 
-.contacts-card {
+.organizers-list {
   display: grid;
-  gap: 16px;
-  width: min(100%, 570px);
+  grid-template-columns: repeat(2, minmax(0, 320px));
+  gap: 32px;
+  justify-items: center;
+  width: min(100%, 672px);
   margin: 0 auto;
 }
 
-.contacts-card p {
-  margin: 0;
+.organizer-card {
+  display: grid;
+  grid-template-columns: 126px minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  width: min(100%, 320px);
+  min-width: 0;
+  text-align: left;
 }
 
-.contacts-card .underlined-link {
-  text-transform: none;
+.organizer-photo {
+  width: 126px;
+  aspect-ratio: 4 / 5;
+  flex: 0 0 auto;
+}
+
+.organizer-photo img {
+  filter: none;
+  object-position: center 28%;
+}
+
+.organizer-info {
+  min-width: 0;
+}
+
+.organizer-info h3 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.organizer-info a {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--wine);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.organizer-info a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.organizer-info p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.organizer-info h3,
+.organizer-info a,
+.organizer-info p {
+  overflow-wrap: anywhere;
 }
 
 .rsvp-section {
@@ -691,27 +747,18 @@ input:focus-visible {
   width: min(100% - 64px, 360px);
   aspect-ratio: 2 / 3;
   margin: 0 auto;
-  background: transparent;
   box-sizing: border-box;
-}
-
-.rsvp-photo::after {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: url("assets/generated/photo-frame-italian-portrait-medium.png") center / contain no-repeat;
-  content: "";
-  pointer-events: none;
+  overflow: hidden;
+  background: var(--soft);
+  border-radius: var(--photo-radius);
 }
 
 .rsvp-photo img {
   position: absolute;
-  left: 19.14%;
-  top: 15.62%;
-  z-index: 1;
+  inset: 0;
   display: block;
-  width: 61.72%;
-  height: 68.36%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 48%;
   filter: none;
@@ -984,8 +1031,7 @@ input[aria-invalid="true"] {
   }
 
   .place-section,
-  .dress-section,
-  .contacts-section {
+  .dress-section {
     width: min(100% - 48px, 920px);
   }
 
@@ -1142,7 +1188,13 @@ input[aria-invalid="true"] {
   }
 
   .contacts-section {
+    width: min(100% - 36px, 560px);
     padding-bottom: 54px;
+  }
+
+  .organizers-list {
+    grid-template-columns: 1fr;
+    width: min(100%, 320px);
   }
 
   .rsvp-section {
@@ -1202,9 +1254,12 @@ input[aria-invalid="true"] {
   }
 
   .place-section,
-  .dress-section,
-  .contacts-section {
+  .dress-section {
     width: min(100% - 32px, 460px);
+  }
+
+  .contacts-section {
+    width: min(100% - 32px, 360px);
   }
 
   .place-photo {
@@ -1226,8 +1281,35 @@ input[aria-invalid="true"] {
     font-size: clamp(48px, 15vw, 72px);
   }
 
-  .contacts-card {
-    width: min(100%, 330px);
+  .contacts-title-image {
+    width: min(100%, 360px);
+  }
+
+  .organizers-list {
+    width: min(100%, 320px);
+    gap: 18px;
+  }
+
+  .organizer-card {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .organizer-photo {
+    width: 104px;
+  }
+
+  .organizer-info h3 {
+    font-size: 19px;
+  }
+
+  .organizer-info a {
+    font-size: 15px;
+  }
+
+  .organizer-info p {
+    font-size: 13px;
+    line-height: 1.42;
   }
 
   .rsvp-photo {
