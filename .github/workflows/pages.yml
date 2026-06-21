@@ -28,10 +28,20 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Prepare static site
+        run: |
+          mkdir -p _site
+          cp index.html styles.css script.js _site/
+          cp -R assets _site/assets
+          for file in CNAME favicon.ico robots.txt site.webmanifest; do
+            [ -f "$file" ] && cp "$file" _site/
+          done
+          touch _site/.nojekyll
+
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
