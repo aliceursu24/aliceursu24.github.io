@@ -491,7 +491,12 @@ input:focus-visible {
 }
 
 .dress-looks {
-  display: block;
+  display: flex;
+  width: 97.7167%;
+  max-width: 1034px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 7.4392%;
   margin: 0 auto;
 }
 
@@ -500,6 +505,18 @@ input:focus-visible {
   width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.dress-look {
+  min-width: 0;
+}
+
+.dress-look--men {
+  flex: 0 0 46.4473%;
+}
+
+.dress-look--women {
+  flex: 0 0 46.1135%;
 }
 
 .dress-copy {
@@ -1160,7 +1177,18 @@ input[aria-invalid="true"] {
   }
 
   .dress-looks {
+    width: min(100%, 520px);
+    max-width: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
     margin-top: 0;
+  }
+
+  .dress-look--men,
+  .dress-look--women {
+    flex: 0 1 auto;
+    width: min(100%, 460px);
   }
 
   .dress-copy {
