@@ -9,13 +9,14 @@
   --graphite: #2e3b39;
   --blush: #edc4ad;
   --dusty-blush: #d4b7b7;
-  --taupe: #d9c8b4;
+  --taupe: #e4d2b8;
   --cocoa: #4a2f20;
   --twist-lime: #4f672c;
   --leaf-green: #9ead6f;
   --cabernet: #6f0b1a;
   --mauvewood: #aa5b69;
-  --potting-soil: #4a2f20;
+  --deep-berry: #6e1d45;
+  --potting-soil: #6c2d0b;
   --focus: #b98b52;
   --photo-radius: 12px;
   --sans: Arial, Helvetica, sans-serif;
@@ -484,22 +485,20 @@ input:focus-visible {
 }
 
 .dress-title {
+  margin-bottom: 14px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .dress-looks {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  align-items: end;
-  margin: 36px auto 0;
+  display: block;
+  margin: 0 auto;
 }
 
 .dress-looks img {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
+  height: auto;
   object-fit: contain;
 }
 
@@ -564,6 +563,10 @@ input:focus-visible {
 
 .color-swatch--mauvewood {
   color: var(--mauvewood);
+}
+
+.color-swatch--deep-berry {
+  color: var(--deep-berry);
 }
 
 .color-swatch--potting-soil {
@@ -1150,15 +1153,14 @@ input[aria-invalid="true"] {
 
   .dress-title {
     width: 100%;
+    margin-bottom: 10px;
     font-size: clamp(58px, 16vw, 70px);
     text-align: center;
     white-space: nowrap;
   }
 
   .dress-looks {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 28px;
+    margin-top: 0;
   }
 
   .dress-copy {
