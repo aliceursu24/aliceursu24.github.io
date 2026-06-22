@@ -381,7 +381,7 @@ function renderGuestCard(guest, index) {
             <input type="radio" name="transport-${personId}" value="self" data-transport ${
               transport === "self" ? "checked" : ""
             }>
-            <span>Своими силами</span>
+            <span>Самостоятельно</span>
           </label>
           <p class="field-error" data-transport-error aria-live="polite"></p>
         </fieldset>
