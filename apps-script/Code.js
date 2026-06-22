@@ -112,7 +112,6 @@ function getGuestsByGroup_(groupId) {
       personId: row.personId,
       firstName: row.firstName,
       lastName: row.lastName,
-      phone: row.phone,
       attendance: normalizeCode_(row.attendance, ATTENDANCE_LABELS, ""),
       alcoholOptions: normalizeAlcoholOptions_(row.alcoholOptions),
       alcoholOther: row.alcoholOther,
@@ -151,12 +150,7 @@ function saveGroup_(payload) {
     }
 
     const guest = guestByPersonId.get(row.personId);
-    const phone = String(guest.phone || "").trim();
     const attendance = normalizeCode_(guest.attendance, ATTENDANCE_LABELS, "");
-
-    if (!phone) {
-      throw new Error("Phone is required for every guest");
-    }
 
     if (!attendance) {
       throw new Error("Attendance is required for every guest");
@@ -209,7 +203,6 @@ function saveGroup_(payload) {
       throw new Error("Second day alcohol choice is required for invited guests");
     }
 
-    updateCell_(table.sheet, row.rowNumber, table.headerMap.phone, phone);
     updateCell_(table.sheet, row.rowNumber, table.headerMap.attendance, labelFor_(ATTENDANCE_LABELS, attendance));
     updateCell_(table.sheet, row.rowNumber, table.headerMap.alcoholOptions, labelsFor_(ALCOHOL_LABELS, alcoholOptions).join(", "));
     updateCell_(table.sheet, row.rowNumber, table.headerMap.alcoholOther, alcoholOther);

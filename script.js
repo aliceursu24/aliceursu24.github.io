@@ -261,19 +261,6 @@ function validateSecondDayAlcohol(guestId) {
   return true;
 }
 
-function validatePhone(guestId) {
-  const input = getGuestField(guestId, "[data-phone]");
-  const error = getGuestField(guestId, "[data-phone-error]");
-
-  if (input.value.trim()) {
-    setInputError(input, error);
-    return true;
-  }
-
-  setInputError(input, error, "Укажите номер телефона.");
-  return false;
-}
-
 function validateRequiredRadio(guestId, name, errorSelector, message) {
   const radios = [
     ...guestList.querySelectorAll(
@@ -329,7 +316,6 @@ function renderGuestCard(guest, index) {
   const lastName = escapeHtml(guest.lastName);
   const attendance = guest.attendance || "";
   const transport = guest.transport || "";
-  const phone = escapeHtml(guest.phone || "");
   const alcoholOptions = normalizeOptions(guest.alcoholOptions);
   const alcoholOther = escapeHtml(guest.alcoholOther || "");
   const secondDayAlcoholOptions = normalizeOptions(guest.secondDayAlcoholOptions);
@@ -365,21 +351,6 @@ function renderGuestCard(guest, index) {
         </label>
         <p class="field-error" data-attendance-error aria-live="polite"></p>
       </fieldset>
-
-      <div class="form-group">
-        <label class="form-row form-row--question">
-          Номер телефона
-          <input
-            name="phone-${personId}"
-            type="tel"
-            autocomplete="tel"
-            value="${phone}"
-            required
-            data-phone
-          >
-        </label>
-        <p class="field-error" data-phone-error aria-live="polite"></p>
-      </div>
 
       <div class="conditional-fields" data-guest-details>
         <fieldset class="form-group">
@@ -568,7 +539,6 @@ function buildPayload() {
       const payload = {
         personId: guest.personId,
         attendance,
-        phone: getGuestField(guest.personId, "[data-phone]").value.trim(),
         alcoholOptions: [],
         alcoholOther: "",
         transport: "",
@@ -620,10 +590,6 @@ function validateGroup() {
       "[data-attendance-error]",
       "Выберите, будет ли гость присутствовать.",
     )) {
-      isValid = false;
-    }
-
-    if (!validatePhone(guest.personId)) {
       isValid = false;
     }
 
@@ -811,12 +777,6 @@ guestList.addEventListener("change", (event) => {
 });
 
 guestList.addEventListener("input", (event) => {
-  if (event.target.matches("[data-phone]")) {
-    const card = event.target.closest("[data-guest-id]");
-    validatePhone(card.dataset.guestId);
-    return;
-  }
-
   const isFirstDayOther = event.target.matches("[data-alcohol-other]");
   const isSecondDayOther = event.target.matches("[data-second-day-alcohol-other]");
 

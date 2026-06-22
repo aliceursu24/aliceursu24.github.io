@@ -10,7 +10,9 @@ groupId | personId | lastName | firstName | phone | attendance | alcoholOptions 
 ```
 
 3. Fill one row per guest. `groupId` and `personId` should be UUID values.
-   Set `secondDayInvited` to `Да` only for guests invited to the second day.
+   The `phone` column is kept for existing/manual data, but the website does
+   not read or update it. Set `secondDayInvited` to `Да` only for guests
+   invited to the second day.
 4. Create a Google Apps Script project bound to the spreadsheet or standalone.
 5. Paste `Code.js` into the Apps Script editor.
 6. The created spreadsheet id is already set in `Code.js`. If you switch to another sheet later, replace `SPREADSHEET_ID` with the new spreadsheet id from the Google Sheet URL.
@@ -41,7 +43,6 @@ Content-Type: text/plain;charset=utf-8
   "guests": [
     {
       "personId": "uuid",
-      "phone": "+7 999 123-45-67",
       "attendance": "yes",
       "alcoholOptions": ["wine"],
       "alcoholOther": "",
