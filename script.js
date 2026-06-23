@@ -412,6 +412,9 @@ function renderSecondDaySection(
   return `
     <section class="day-section day-section--second" data-second-day>
       <p class="day-section__title">Второй день</p>
+      <p class="day-section__description">
+        Вы также приглашены на второй день! Мероприятие, во время которого мы сможем отдохнуть в свободной атмосфере, вспомнить и обсудить все светлые моменты со свадьбы. Предварительная дата проведения: 22.08.2026. Вся дополнительная информация будет направлена позже
+      </p>
 
       <fieldset class="form-group">
         <legend>Будете ли присутствовать?</legend>
