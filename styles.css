@@ -532,9 +532,9 @@ input:focus-visible {
 }
 
 .color-palette {
-  display: flex;
-  flex-wrap: wrap;
-  width: min(100%, 330px);
+  display: grid;
+  grid-template-columns: repeat(4, 58px);
+  width: min(100%, 358px);
   justify-content: center;
   gap: 24px 42px;
   margin: 30px auto 18px;
@@ -542,7 +542,6 @@ input:focus-visible {
 
 .color-swatch {
   display: grid;
-  flex: 0 0 58px;
   min-width: 0;
   justify-items: center;
   color: var(--graphite);
@@ -1299,9 +1298,9 @@ input[aria-invalid="true"] {
   }
 
   .color-palette {
-    width: min(100%, 246px);
-    grid-template-columns: repeat(3, 46px);
-    gap: 18px 36px;
+    grid-template-columns: repeat(4, 46px);
+    width: min(100%, 238px);
+    gap: 18px;
   }
 
   .color-swatch i {
