@@ -729,12 +729,19 @@ input:focus-visible {
 
 .organizer-info a {
   display: inline-block;
-  margin-bottom: 10px;
   color: var(--wine);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
+}
+
+.organizer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 10px;
 }
 
 .organizer-info a:hover {
