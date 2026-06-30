@@ -490,11 +490,17 @@ input:focus-visible {
   margin-left: auto;
 }
 
+.dress-intro {
+  width: min(100%, 760px);
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
 .dress-looks {
   display: flex;
   width: 97.7167%;
   max-width: 1034px;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   gap: 7.4392%;
   margin: 0 auto;
@@ -508,27 +514,18 @@ input:focus-visible {
 }
 
 .dress-look {
+  display: flex;
   min-width: 0;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dress-look--men {
-  flex: 0 0 46.4473%;
+  flex: 0 0 46.1135%;
 }
 
 .dress-look--women {
   flex: 0 0 46.1135%;
-}
-
-.dress-copy {
-  width: 100%;
-  margin: 18px auto 0;
-}
-
-.dress-copy .body-copy {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
 }
 
 .color-palette {
@@ -537,7 +534,7 @@ input:focus-visible {
   width: min(100%, 358px);
   justify-content: center;
   gap: 24px 42px;
-  margin: 30px auto 18px;
+  margin: 24px auto 0;
 }
 
 .color-swatch {
@@ -587,6 +584,14 @@ input:focus-visible {
 
 .color-swatch--potting-soil {
   color: var(--potting-soil);
+}
+
+.color-swatch--black {
+  color: #050505;
+}
+
+.color-palette--men .color-swatch--black {
+  grid-column: 2 / span 2;
 }
 
 .wishes-section {
@@ -696,7 +701,7 @@ input:focus-visible {
 .organizer-card {
   display: grid;
   grid-template-columns: 126px minmax(0, 1fr);
-  align-items: center;
+  align-items: start;
   gap: 24px;
   width: min(100%, 320px);
   min-width: 0;
@@ -1190,7 +1195,7 @@ input[aria-invalid="true"] {
     max-width: none;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 28px;
     margin-top: 0;
   }
 
@@ -1198,10 +1203,6 @@ input[aria-invalid="true"] {
   .dress-look--women {
     flex: 0 1 auto;
     width: min(100%, 460px);
-  }
-
-  .dress-copy {
-    margin-top: 12px;
   }
 
   .color-palette {
